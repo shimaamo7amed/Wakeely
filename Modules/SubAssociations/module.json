@@ -1,0 +1,11 @@
+{
+    "name": "SubAssociations",
+    "alias": "sub-associations",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\SubAssociations\\Providers\\SubAssociationsServiceProvider"
+    ],
+    "files": []
+}

@@ -1,0 +1,11 @@
+{
+    "name": "AreasPractice",
+    "alias": "areas-practice",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\AreasPractice\\Providers\\AreasPracticeServiceProvider"
+    ],
+    "files": []
+}

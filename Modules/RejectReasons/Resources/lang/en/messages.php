@@ -1,0 +1,33 @@
+<?php
+return
+[
+    'country_not_exist'=>"Country not exist",
+    'otp_sent'=>"OTP sent successfully",
+    'already_exist'=>"Client already exist",
+    'dont_exist'=>"Client dont exist",
+    'phoneAlreadyRegistered'=>"Phone number already registered",
+    'checkWhatsappForOTP'=>"Check your whatsapp for otp",
+    'otp_expired'=>"OTP expired",
+    'invalid_otp'=>'Invalid OTP',
+    'phoneAlreadyRegistered'=>"Phone number already registered",
+    'register_success'=>"Client registered successfully",
+    'invalidPhone'=>"Invalid phone number",
+    'invalidPassword'=>"Invalid password",
+    'loginSuccessfully'=>"Login successfully",
+    'unauthorized'=>"Unauthorized",
+    'incorrect_old_password'=>"Incorrect old password",
+    'passwords_do_not_match '=>"Passwords do not match",
+    'password_updatedSuccessfully'=>"Password updated successfully",
+    'logoutSuccessfully'=>"Logout successfully",
+    'DeletedSuccessfully'=>"Your Account Deleted successfully",
+    'phoneNotFound'          => "Phone number not found",
+    'checkYourPhone '         => "Check your phone number",
+    'otp_expired'            => "OTP expired",
+    'invalid_otp'            => "Invalid OTP",
+    'otp_verified_success'   => "OTP verified successfully",
+    'passwordUpdatedSuccessfully'=>"Password Changed Successfully Your password has been updated. 
+        You can now log in with your new credentials.",
+    "not_enough_points" => "You do not have enough points to place a bid on this product",
+    'no_active_subscription' => "You don't have an active subscription",
+    "updatedSuccessfully" => "Updated successfully",
+];

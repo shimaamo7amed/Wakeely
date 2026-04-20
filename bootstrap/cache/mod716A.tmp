@@ -1,0 +1,39 @@
+<?php return array (
+  'providers' => 
+  array (
+    0 => 'Modules\\About\\Providers\\AboutServiceProvider',
+    1 => 'Modules\\Admin\\Providers\\AdminServiceProvider',
+    2 => 'Modules\\AreasPractice\\Providers\\AreasPracticeServiceProvider',
+    3 => 'Modules\\AreasPractice\\Providers\\AreasPracticeServiceProvider',
+    4 => 'Modules\\City\\Providers\\CityServiceProvider',
+    5 => 'Modules\\Client\\Providers\\ClientServiceProvider',
+    6 => 'Modules\\Contact\\Providers\\ContactServiceProvider',
+    7 => 'Modules\\Country\\Providers\\CountryServiceProvider',
+    8 => 'Modules\\Faq\\Providers\\FaqServiceProvider',
+    9 => 'Modules\\Governorate\\Providers\\GovernorateServiceProvider',
+    10 => 'Modules\\Lawyer\\Providers\\LawyerServiceProvider',
+    11 => 'Modules\\Setting\\Providers\\SettingServiceProvider',
+    12 => 'Modules\\Term\\Providers\\TermServiceProvider',
+    13 => 'Modules\\University\\Providers\\UniversityServiceProvider',
+  ),
+  'eager' => 
+  array (
+    0 => 'Modules\\About\\Providers\\AboutServiceProvider',
+    1 => 'Modules\\Admin\\Providers\\AdminServiceProvider',
+    2 => 'Modules\\AreasPractice\\Providers\\AreasPracticeServiceProvider',
+    3 => 'Modules\\AreasPractice\\Providers\\AreasPracticeServiceProvider',
+    4 => 'Modules\\City\\Providers\\CityServiceProvider',
+    5 => 'Modules\\Client\\Providers\\ClientServiceProvider',
+    6 => 'Modules\\Contact\\Providers\\ContactServiceProvider',
+    7 => 'Modules\\Country\\Providers\\CountryServiceProvider',
+    8 => 'Modules\\Faq\\Providers\\FaqServiceProvider',
+    9 => 'Modules\\Governorate\\Providers\\GovernorateServiceProvider',
+    10 => 'Modules\\Lawyer\\Providers\\LawyerServiceProvider',
+    11 => 'Modules\\Setting\\Providers\\SettingServiceProvider',
+    12 => 'Modules\\Term\\Providers\\TermServiceProvider',
+    13 => 'Modules\\University\\Providers\\UniversityServiceProvider',
+  ),
+  'deferred' => 
+  array (
+  ),
+);

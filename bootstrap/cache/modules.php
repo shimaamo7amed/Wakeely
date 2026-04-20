@@ -1,0 +1,43 @@
+<?php return array (
+  'providers' => 
+  array (
+    0 => 'Modules\\About\\Providers\\AboutServiceProvider',
+    1 => 'Modules\\Admin\\Providers\\AdminServiceProvider',
+    2 => 'Modules\\AreasPractice\\Providers\\AreasPracticeServiceProvider',
+    3 => 'Modules\\City\\Providers\\CityServiceProvider',
+    4 => 'Modules\\Client\\Providers\\ClientServiceProvider',
+    5 => 'Modules\\Contact\\Providers\\ContactServiceProvider',
+    6 => 'Modules\\Country\\Providers\\CountryServiceProvider',
+    7 => 'Modules\\Faq\\Providers\\FaqServiceProvider',
+    8 => 'Modules\\Governorate\\Providers\\GovernorateServiceProvider',
+    9 => 'Modules\\Language\\Providers\\LanguageServiceProvider',
+    10 => 'Modules\\Lawyer\\Providers\\LawyerServiceProvider',
+    11 => 'Modules\\Setting\\Providers\\SettingServiceProvider',
+    12 => 'Modules\\SubAssociations\\Providers\\SubAssociationsServiceProvider',
+    13 => 'Modules\\Term\\Providers\\TermServiceProvider',
+    14 => 'Modules\\Token\\Providers\\TokenServiceProvider',
+    15 => 'Modules\\University\\Providers\\UniversityServiceProvider',
+  ),
+  'eager' => 
+  array (
+    0 => 'Modules\\About\\Providers\\AboutServiceProvider',
+    1 => 'Modules\\Admin\\Providers\\AdminServiceProvider',
+    2 => 'Modules\\AreasPractice\\Providers\\AreasPracticeServiceProvider',
+    3 => 'Modules\\City\\Providers\\CityServiceProvider',
+    4 => 'Modules\\Client\\Providers\\ClientServiceProvider',
+    5 => 'Modules\\Contact\\Providers\\ContactServiceProvider',
+    6 => 'Modules\\Country\\Providers\\CountryServiceProvider',
+    7 => 'Modules\\Faq\\Providers\\FaqServiceProvider',
+    8 => 'Modules\\Governorate\\Providers\\GovernorateServiceProvider',
+    9 => 'Modules\\Language\\Providers\\LanguageServiceProvider',
+    10 => 'Modules\\Lawyer\\Providers\\LawyerServiceProvider',
+    11 => 'Modules\\Setting\\Providers\\SettingServiceProvider',
+    12 => 'Modules\\SubAssociations\\Providers\\SubAssociationsServiceProvider',
+    13 => 'Modules\\Term\\Providers\\TermServiceProvider',
+    14 => 'Modules\\Token\\Providers\\TokenServiceProvider',
+    15 => 'Modules\\University\\Providers\\UniversityServiceProvider',
+  ),
+  'deferred' => 
+  array (
+  ),
+);

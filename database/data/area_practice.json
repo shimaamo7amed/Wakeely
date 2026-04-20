@@ -1,0 +1,23 @@
+{
+  "areas_of_practice": [
+    { "id": 1, "name_en": "Personal status", "name_ar": "الأحوال الشخصية" },
+    { "id": 2, "name_en": "Criminal", "name_ar": "جنح وجنايات" },
+    { "id": 3, "name_en": "Civil disputes", "name_ar": "منازعات مدنية" },
+    { "id": 4, "name_en": "Commercial disputes", "name_ar": "منازعات تجارية" },
+    { "id": 5, "name_en": "Tax disputes", "name_ar": "منازعات ضريبية" },
+    { "id": 6, "name_en": "Lease disputes", "name_ar": "منازعات ايجارية" },
+    { "id": 7, "name_en": "Labor disputes", "name_ar": "منازعات عمالية" },
+    { "id": 8, "name_en": "Administrative judiciary and the State Council", "name_ar": "القضاء الإداري ومجلس الدولة" },
+    { "id": 9, "name_en": "Intellectual property & Trade Marks", "name_ar": "الملكية الفكرية والعلامات التجارية" },
+    { "id": 10, "name_en": "Residence and affairs of foreigners and refugees", "name_ar": "الاقامة وشؤون الاجانب واللاجئين" },
+    { "id": 11, "name_en": "Establishing companies", "name_ar": "تأسيس الشركات" },
+    { "id": 12, "name_en": "Legal support for start-ups", "name_ar": "الدعم القانوني للشركات الناشئة" },
+    { "id": 13, "name_en": "Drafting and reviewing contracts", "name_ar": "صياغة ومراجعة العقود" },
+    { "id": 14, "name_en": "Attestation and real estate registration", "name_ar": "التوثيق والشهر العقاري" },
+    { "id": 15, "name_en": "Licenses to practice commercial activities", "name_ar": "تراخيص مزاولة الأنشطة التجارية" },
+    { "id": 16, "name_en": "Cybercrimes", "name_ar": "جرائم الكترونية" },
+    { "id": 17, "name_en": "Social security", "name_ar": "التأمينات الاجتماعية" },
+    { "id": 18, "name_en": "Building laws and licenses", "name_ar": "قوانين وتراخيص البناء" },
+    { "id": 19, "name_en": "Debt collection", "name_ar": "تحصيل الديون" }
+  ]
+}

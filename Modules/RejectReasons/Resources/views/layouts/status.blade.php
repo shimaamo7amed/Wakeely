@@ -1,0 +1,1 @@
+<input class="toggle" type="checkbox" onclick="toggleswitch({{ $Model->id }},'clients')" @if ($Model->status) checked @endif>

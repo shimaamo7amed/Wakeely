@@ -1,0 +1,20 @@
+{
+    "Admin": true,
+    "Setting": true,
+    "Faq": true,
+    "Contact": true,
+    "About": true,
+    "Term": true,
+    "Country": true,
+    "Governorate": true,
+    "City": true,
+    "Client": true,
+    "Lawyer": true,
+    "University": true,
+    "AreasPractice": true,
+    "SubAssociations": true,
+    "Language": true,
+    "RejectReason": true,
+    "Token": true
+
+}

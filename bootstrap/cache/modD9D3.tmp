@@ -1,0 +1,35 @@
+<?php return array (
+  'providers' => 
+  array (
+    0 => 'Modules\\About\\Providers\\AboutServiceProvider',
+    1 => 'Modules\\Admin\\Providers\\AdminServiceProvider',
+    2 => 'Modules\\City\\Providers\\CityServiceProvider',
+    3 => 'Modules\\Client\\Providers\\ClientServiceProvider',
+    4 => 'Modules\\Contact\\Providers\\ContactServiceProvider',
+    5 => 'Modules\\Country\\Providers\\CountryServiceProvider',
+    6 => 'Modules\\Faq\\Providers\\FaqServiceProvider',
+    7 => 'Modules\\Governorate\\Providers\\GovernorateServiceProvider',
+    8 => 'Modules\\Lawyer\\Providers\\LawyerServiceProvider',
+    9 => 'Modules\\Setting\\Providers\\SettingServiceProvider',
+    10 => 'Modules\\Term\\Providers\\TermServiceProvider',
+    11 => 'Modules\\University\\Providers\\UniversityServiceProvider',
+  ),
+  'eager' => 
+  array (
+    0 => 'Modules\\About\\Providers\\AboutServiceProvider',
+    1 => 'Modules\\Admin\\Providers\\AdminServiceProvider',
+    2 => 'Modules\\City\\Providers\\CityServiceProvider',
+    3 => 'Modules\\Client\\Providers\\ClientServiceProvider',
+    4 => 'Modules\\Contact\\Providers\\ContactServiceProvider',
+    5 => 'Modules\\Country\\Providers\\CountryServiceProvider',
+    6 => 'Modules\\Faq\\Providers\\FaqServiceProvider',
+    7 => 'Modules\\Governorate\\Providers\\GovernorateServiceProvider',
+    8 => 'Modules\\Lawyer\\Providers\\LawyerServiceProvider',
+    9 => 'Modules\\Setting\\Providers\\SettingServiceProvider',
+    10 => 'Modules\\Term\\Providers\\TermServiceProvider',
+    11 => 'Modules\\University\\Providers\\UniversityServiceProvider',
+  ),
+  'deferred' => 
+  array (
+  ),
+);

@@ -1,0 +1,25 @@
+<?php
+return
+[
+   'otp_sent_successfully'=>'تم إرسال الكود بنجاح',
+   'invalid_otp'=>'الكود غير صحيح',
+   'verified_successfully'=>'تم التحقق بنجاح',
+   'login_successfully'=>'تم تسجيل الدخول بنجاح',
+   'invalidEmail'=>'البريد الإلكتروني غير صحيح',
+   'invalidPassword'=>'كلمة المرور غير صحيحة',
+   'loginSuccessfully'=>'تم تسجيل الدخول بنجاح',
+   'addedSuccessfully'=>'تمت الإضافة بنجاح',
+   'DeletedSuccessfully'=>'تم الحذف بنجاح',
+   'unauthorized'=>'غير مصرح لك',
+   'logout_successfully'=>'تم تسجيل الخروج بنجاح',
+   'otp_verified_successfully'=>'تم التحقق بنجاح',
+   'password_reset_successfully'=>'تم تغيير كلمة المرور بنجاح',
+   'unauthenticated'=>'غير مصرح لك',
+   'image_updated_successfully'=>'تم تحديث الصورة بنجاح',
+   'updatedSuccessfully'=>'تم التحديث بنجاح',
+   'password_updated_successfully'=>'تم تحديث كلمة المرور بنجاح',
+   'created_successfully'=>'تم الإنشاء بنجاح',
+   'creation_failed'=>'فشل في الإنشاء',
+   'uploaded_successfully'=>'تم الرفع بنجاح',
+   'unauthenticated'=>'غير مصرح لك',
+];

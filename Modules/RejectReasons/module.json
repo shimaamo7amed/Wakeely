@@ -1,0 +1,11 @@
+{
+    "name": "RejectReasons",
+    "alias": "reject-reasons",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\RejectReasons\\Providers\\RejectReasonsServiceProvider"
+    ],
+    "files": []
+}
