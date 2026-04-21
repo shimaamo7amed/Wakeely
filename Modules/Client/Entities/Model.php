@@ -57,6 +57,23 @@ class Model extends Authenticatable
     {
         return $this->hasOne(TokenWallet::class, 'lawyer_id');
     }
+
+       protected static function booted()
+   {
+    static::creating(function ($client) {
+        if (!$client->image) {
+            $client->image = 'uploads/default.png';
+        }
+    });
+}
+
+public function getImageAttribute($value)
+{
+    return $value 
+        ? asset ($value) 
+        : asset('uploads/default.png');
+}
+
     protected static function boot()
     {
         parent::boot();
