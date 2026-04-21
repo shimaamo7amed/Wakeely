@@ -22,6 +22,7 @@ class APIController extends BasicController
         $lawyer = $this->ClientAuth();
 
         if (!$lawyer || $lawyer->type !== 'lawyer') {
+
             return ResponseHelper::make(
                 null,
                 __('client::messages.unauthenticated'),
@@ -71,8 +72,13 @@ class APIController extends BasicController
 
             $lawyer->load('legalProfile.qualifications.degreeType', 'legalProfile.qualifications.university');
             // dd($lawyer);
+            $token = $lawyer->createToken('lawyer-token')->plainTextToken;
+
             return ResponseHelper::make(
-                new LawyerResource($lawyer),
+                [
+                    'token'  => $token,
+                    'lawyer' => new LawyerResource($lawyer),
+                ],
                 __('client::messages.created_successfully'),
                 true,
                 201
@@ -121,8 +127,13 @@ class APIController extends BasicController
         $lawyer->update(['current_step' => 2]);
         $lawyer->refresh(); 
 
+$token = $lawyer->createToken('lawyer-token')->plainTextToken;
+
         return ResponseHelper::make(
-            new LawyerResource($lawyer),
+                [
+                    'token'  => $token,
+                    'lawyer' => new LawyerResource($lawyer),
+                ],
             __('client::messages.uploaded_successfully'),
             true,
             200
@@ -160,9 +171,12 @@ class APIController extends BasicController
             'is_submitted' => true,
             ]);
         $lawyer->refresh();
-
+        $token=$lawyer->createToken('lawyer-token')->plainTextToken;
         return ResponseHelper::make(
-            new LawyerResource($lawyer),
+                [
+                    'token'  => $token,
+                    'lawyer' => new LawyerResource($lawyer),
+                ],
             __('client::messages.uploaded_successfully'),
             true,
             200

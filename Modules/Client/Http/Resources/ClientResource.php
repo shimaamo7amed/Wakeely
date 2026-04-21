@@ -46,7 +46,7 @@ class ClientResource extends \Illuminate\Http\Resources\Json\JsonResource
 
     private function resolveOnboarding()
     {
-        if ($this->type !== 'lawyer' || $this->status === 'pending' || $this->status === 'incomplete' || $this->status === 'accepted') {
+        if ($this->type !== 'lawyer' || $this->status === 'pending'  || $this->status === 'accepted') {
             return null;
         }
 
@@ -56,10 +56,13 @@ class ClientResource extends \Illuminate\Http\Resources\Json\JsonResource
         ];
     }
 
-    // ================== HELPERS ==================
 
     private function getOnboardingStatus()
     {
+        if ($this->status === 'accepted') {
+            return 'active';
+        }
+
         return $this->status ?? 'incomplete';
     }
 

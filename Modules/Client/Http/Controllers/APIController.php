@@ -14,11 +14,13 @@ use Modules\Client\Http\Requests\LoginRequest;
 use Modules\Client\Http\Requests\RegisterRequest;
 use Modules\Client\Http\Requests\ResetPasswordRequest;
 use Modules\Client\Http\Requests\UpdateImageRequest;
+use Modules\Client\Http\Requests\UpdatePassRequest;
 use Modules\Client\Http\Requests\UpdateProfileRequest;
 use Modules\Client\Http\Requests\VerifyForgetOtpRequest;
 use Modules\Client\Http\Requests\VerifyRegisterRequest;
 use Modules\Client\Http\Resources\ClientResource;
-use Modules\Client\Http\Requests\UpdatePassRequest;
+use Modules\Client\Http\Resources\LegalProfileResource;
+use Modules\Client\Http\Resources\ProfileResource;
 use Modules\Client\Services\AuthServices;
 use Modules\Country\Entities\Model as Country;
 
@@ -98,6 +100,7 @@ class APIController extends BasicController
     }
     public function verifyForgetPasswordOtp(VerifyForgetOtpRequest $request)
     {
+        // dd($request);
         $result = $this->authService->verifyForgetOtp($request->validated());
         if (!$result) {
             return ResponseHelper::make(null, __('client::messages.invalid_otp'), 422);
@@ -106,10 +109,17 @@ class APIController extends BasicController
     }
     public function resetPassword(ResetPasswordRequest $request)
     {
-        $this->authService->resetPassword($request->validated());
-        return ResponseHelper::make(null, __('client::messages.password_reset_successfully'));
+        $client = $this->authService->resetPassword($request->validated());
+    
+        if (!$client) {
+            return ResponseHelper::make(null, __('client::messages.invalid_otp'), 400);
+        }
+    
+        return ResponseHelper::make([
+            'token'  => $client->createToken('ClientToken')->plainTextToken,
+            'client' => new ClientResource($client),
+        ], __('client::messages.password_reset_successfully'));
     }
-
     public function updateProfile(UpdateProfileRequest $request)
     {
         $client = $this->AuthClient();
@@ -234,6 +244,33 @@ class APIController extends BasicController
 
         return ResponseHelper::make($response, __('client::messages.updatedSuccessfully'));
     }
+
+    public function personalInfo()
+    {
+        $user = $this->AuthClient();
+        return ResponseHelper::make(ProfileResource::make($user));
+    }
+
+    public function legalInfo()
+    {
+        $user = $this->AuthClient();
+
+        if ($user->type !== 'lawyer') {
+            return ResponseHelper::make(null, __('client::messages.unauthorized'), false);
+        }
+
+        $user->load([
+            'legalProfile.workAreas',
+            'legalProfile.expertises',
+            'legalProfile.languages',
+            'legalProfile.qualifications.degreeType',
+            'legalProfile.qualifications.university',
+            'legalProfile.year_of_experiance',
+        ]);
+
+        return ResponseHelper::make(LegalProfileResource::make($user->legalProfile));
+    }
+
     public function userAuth()
     {
         $client = $this->AuthClient();

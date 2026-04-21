@@ -1,8 +1,9 @@
 <?php
+
 namespace Modules\Client\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rules\Password;
+use Illuminate\Support\Facades\Hash;
 
 class UpdatePassRequest extends FormRequest
 {
@@ -11,6 +12,21 @@ class UpdatePassRequest extends FormRequest
         return true;
     }
 
+    // public function rules()
+    // {
+    //     return [
+    //         'current_password' => ['required', 'current_password'],
+
+    //         'password' => ['required', 'string', 'min:6',
+    //             'regex:/[a-z]/',
+    //             'regex:/[A-Z]/',
+    //             'regex:/[0-9]/',
+    //             'regex:/[@$!%*#?&]/',
+    //             'confirmed'
+    //         ],
+    //     ];
+    // }
+
     public function rules()
     {
         return [
@@ -18,12 +34,18 @@ class UpdatePassRequest extends FormRequest
 
             'password' => [
                 'required',
+                'string',
+                'min:6',
+                'regex:/[a-z]/',
+                'regex:/[A-Z]/',
+                'regex:/[0-9]/',
+                'regex:/[@$!%*#?&]/',
                 'confirmed',
-                Password::min(6)
-                    ->mixedCase()
-                    ->letters()
-                    ->numbers()
-                    ->symbols(),
+                function ($attribute, $value, $fail) {
+                    if (Hash::check($value, auth('client')->user()->password)) {
+                        $fail(__('trans.MustnotbeSame'));
+                    }
+                }
             ],
         ];
     }

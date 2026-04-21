@@ -33,8 +33,6 @@ class LawyerResource extends JsonResource
         ];
     }
 
-    // ================== MAIN LOGIC ==================
-
     private function Differentid()
     {
         if ($this->type === 'user') {
@@ -46,8 +44,7 @@ class LawyerResource extends JsonResource
 
     private function resolveOnboarding()
     {
-        // الشرط الجديد: لو مش محامي OR الحالة pending، يرجع null
-        if ($this->type !== 'lawyer' || $this->status === 'pending' || $this->status === 'incomplete' || $this->status === 'accepted') {
+        if ($this->type !== 'lawyer' || $this->status === 'pending' || $this->status === 'accepted') {
             return null;
         }
 
@@ -57,10 +54,12 @@ class LawyerResource extends JsonResource
         ];
     }
 
-    // ================== HELPERS ==================
-
     private function getOnboardingStatus()
     {
+        if ($this->status === 'accepted') {
+            return 'active';
+        }
+
         return $this->status ?? 'incomplete';
     }
 

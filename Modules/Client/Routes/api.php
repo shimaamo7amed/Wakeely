@@ -22,5 +22,7 @@ Route::prefix('auth')->controller(APIController::class)->middleware('setLocale')
         Route::PATCH('update/image', 'updateImage');
         Route::PATCH('update/profile', 'updateProfile');
         Route::post('verify-email-otp', 'verifyEmailUpdate');
+        Route::get('my-peronal-info', 'personalInfo');
+        Route::get('my-legal-info', 'legalInfo');
      });
 });

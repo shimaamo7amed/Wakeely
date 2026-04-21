@@ -49,25 +49,36 @@ class PublicController extends BasicController
         if (!$profile) {
             return ResponseHelper::make(null, __('lawyer::messages.profile_not_found'), 404);
         }
+
         $requestedAreas = $request->input('work_areas', []);
-        $newCount = count($requestedAreas);
-        $currentCount = $profile->workAreas()->count();
-        $freeLimit = 2;  
+        
+        $existingIds = $profile->workAreas()->pluck('law_work_areas.id')->toArray();
+            $newIdsToAdd = array_diff($requestedAreas, $existingIds);
+        $newCountToAdd = count($newIdsToAdd);
+        if ($newCountToAdd === 0) {
+            return ResponseHelper::make(null, __('lawyer::messages.update_success'));
+        }
+        $currentTotalCount = count($existingIds);
+        $freeLimit = 2;
         $costPerExtra = 2;
         $requiredTokens = 0;
-        if ($newCount > $currentCount && $newCount > $freeLimit) {
-            $baseCount = max($currentCount, $freeLimit);
-            $extraAreas = $newCount - $baseCount;
-            $requiredTokens = $extraAreas * $costPerExtra;
+
+        // حساب التكلفة بناءً على الإضافات الجديدة فقط
+        foreach ($newIdsToAdd as $index => $id) {
+            $position = $currentTotalCount + $index + 1; // ترتيب العنصر الجديد
+            if ($position > $freeLimit) {
+                $requiredTokens += $costPerExtra;
+            }
         }
+
         if ($requiredTokens > 0) {
             if (!$wallet) {
                 return ResponseHelper::make(null, __('lawyer::messages.insufficient_tokens'), 400);
             }
             $isFreeExpired = $wallet->free_expires_at && now()->greaterThan($wallet->free_expires_at);
             $availableFree = $isFreeExpired ? 0 : $wallet->free_balance;
-            
             $totalAvailable = $wallet->balance + $availableFree;
+
             if ($totalAvailable < $requiredTokens) {
                 return ResponseHelper::make(null, __('lawyer::messages.insufficient_tokens'), 400);
             }
@@ -81,7 +92,8 @@ class PublicController extends BasicController
             }
             $wallet->save();
         }
-        $profile->workAreas()->sync($requestedAreas);
+
+        $profile->workAreas()->syncWithoutDetaching($newIdsToAdd);
 
         return ResponseHelper::make(null, __('lawyer::messages.update_success'));
     }
@@ -99,17 +111,25 @@ class PublicController extends BasicController
         if (!$profile) {
             return ResponseHelper::make(null, __('lawyer::messages.profile_not_found'), 404);
         }
+
         $requestedExpertises = $request->input('expertises', []);
-        $newCount = count($requestedExpertises);
-        $currentCount = $profile->expertises()->count();
+            $existingIds = $profile->expertises()->pluck('law_expertises.id')->toArray();
+            $newIdsToAdd = array_diff($requestedExpertises, $existingIds);
+        $newCountToAdd = count($newIdsToAdd);
+
+        if ($newCountToAdd === 0) {
+            return ResponseHelper::make(null, __('lawyer::messages.update_success'));
+        }
+
+        $currentTotalCount = count($existingIds);
         $freeLimit = 2;
         $costPerExtra = 2;
         $requiredTokens = 0;
-
-        if ($newCount > $currentCount && $newCount > $freeLimit) {
-            $baseCount = max($currentCount, $freeLimit);
-            $extraExpertises = $newCount - $baseCount;
-            $requiredTokens = $extraExpertises * $costPerExtra;
+        foreach ($newIdsToAdd as $index => $id) {
+            $position = $currentTotalCount + $index + 1;
+            if ($position > $freeLimit) {
+                $requiredTokens += $costPerExtra;
+            }
         }
 
         if ($requiredTokens > 0) {
@@ -123,6 +143,7 @@ class PublicController extends BasicController
             if ($totalAvailable < $requiredTokens) {
                 return ResponseHelper::make(null, __('lawyer::messages.insufficient_tokens'), 400);
             }
+
             if ($availableFree >= $requiredTokens) {
                 $wallet->free_balance -= $requiredTokens;
             } else {
@@ -132,8 +153,7 @@ class PublicController extends BasicController
             }
             $wallet->save();
         }
-
-        $profile->expertises()->sync($requestedExpertises);
+        $profile->expertises()->syncWithoutDetaching($newIdsToAdd);
 
         return ResponseHelper::make(null, __('lawyer::messages.update_success'));
     }

@@ -2288,4 +2288,5 @@ return [
     'Personal Information' => 'المعلومات الشخصية',
     'lawyers' => 'المحامين',
     'lawyer' => 'محامي',
+    'updated_successfully' => 'تم التحديث بنجاح',
 ];

@@ -2389,6 +2389,7 @@ return [
     'no_image_uploaded' => 'No image uploaded',
     'lawyers' => 'Lawyers',
     'lawyer' => 'Lawyer',
+    'updated_successfully' => 'Updated Successfully',
 
 ];
 

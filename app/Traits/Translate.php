@@ -18,4 +18,5 @@ trait Translate
     {
         return $this['price_'.lang()] ?? null;
     }
+    
 }
